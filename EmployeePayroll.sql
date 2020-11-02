@@ -55,3 +55,8 @@ group by gender;
 select COUNT(gender), gender from employee_payroll
 group by gender;
 
+-- Add new columns phone,address and department to table
+Alter table employee_payroll add phone varchar(15)
+Alter table employee_payroll add department varchar(20)
+Alter table employee_payroll add address varchar(150)
+Alter table employee_payroll add constraint df_address default 'India' for address
