@@ -20,3 +20,6 @@ insert into employee_payroll values
 ('Bill',100000.00,'2018-10-03'),
 ('Teresa',200000.00,'2019-08-28'),
 ('Charlie',300000.00,'2020-04-05');
+
+-- Retrieve all data from table
+select * from employee_payroll;
