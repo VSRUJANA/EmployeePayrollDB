@@ -64,3 +64,10 @@ Alter table employee_payroll add constraint df_address default 'India' for addre
 -- Add BasicPay,Decductions,TaxablePay,IncomeTax and NetPay columns to table
 sp_rename 'employee_payroll.salary', 'basic_pay';
 alter table employee_payroll add deduction money,taxable_pay money,income_tax money,net_pay money;
+
+-- Update data for newly added columns
+Update employee_payroll set phone = '8332098789', department = 'Sales', address = 'Hyderabad', taxable_pay=70000, net_pay=95000 where name = 'Bill'
+Update employee_payroll set phone = '9490876432', department = 'Marketing', address = 'Chennai', taxable_pay=180000, net_pay=190000 where name = 'Teresa'
+Update employee_payroll set phone = '7413454566', department = 'Finance', address = 'Bangalore', taxable_pay=250000, net_pay=285000 where name = 'Charlie'
+Update employee_payroll set deduction=50000, income_tax=10000
+select * from employee_payroll;
