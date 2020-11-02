@@ -37,3 +37,21 @@ select * from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'employee_payroll';
 update employee_payroll set gender = 'M' where name = 'Bill' or name = 'Charlie';
 update employee_payroll set gender = 'F' where name = 'Teresa';
 select * from employee_payroll;
+
+-- Sum of salary of all males
+select SUM(salary) from employee_payroll
+where gender = 'M'
+group by gender
+-- Average salary based on gender
+select AVG(salary), gender from employee_payroll
+group by gender;
+-- Minimum salary based on gender
+select MIN(salary), gender from employee_payroll
+group by gender;
+-- Maximum salary based on gender
+select MAX(salary), gender from employee_payroll
+group by gender;
+-- Employee count based on gender
+select COUNT(gender), gender from employee_payroll
+group by gender;
+
