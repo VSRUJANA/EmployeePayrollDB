@@ -57,6 +57,10 @@ group by gender;
 
 -- Add new columns phone,address and department to table
 Alter table employee_payroll add phone varchar(15)
-Alter table employee_payroll add department varchar(20)
+Alter table employee_payroll add department varchar(20) 
 Alter table employee_payroll add address varchar(150)
-Alter table employee_payroll add constraint df_address default 'India' for address
+Alter table employee_payroll add constraint df_address default 'India' for address;
+
+-- Add BasicPay,Decductions,TaxablePay,IncomeTax and NetPay columns to table
+sp_rename 'employee_payroll.salary', 'basic_pay';
+alter table employee_payroll add deduction money,taxable_pay money,income_tax money,net_pay money;
