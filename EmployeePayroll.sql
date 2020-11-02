@@ -10,7 +10,7 @@ create table employee_payroll
 id int identity(1,1),
 name varchar(25) not null,
 salary money not null,
-start date not null
+start_date date not null
 );
 
 -- Display table details
@@ -27,7 +27,7 @@ select * from employee_payroll;
 -- Selecting salary of Teresa
 select salary from employee_payroll where name = 'Teresa';
 -- Selecting all employees with start date between 1/1/2018 and present date
-select * from employee_payroll where start between '2018-01-01' and GETDATE();
+select * from employee_payroll where start_date between '2018-01-01' and GETDATE();
 
 -- Add extra column 'Gender' to table
 Alter table employee_payroll
@@ -71,3 +71,9 @@ Update employee_payroll set phone = '9490876432', department = 'Marketing', addr
 Update employee_payroll set phone = '7413454566', department = 'Finance', address = 'Bangalore', taxable_pay=250000, net_pay=285000 where name = 'Charlie'
 Update employee_payroll set deduction=50000, income_tax=10000
 select * from employee_payroll;
+
+-- Make Teresa as a part of sales and marketing department
+insert into employee_payroll values
+('Teresa','200000.00','2019-08-28','F','Chennai','9490876432','Sales',50000,180000,10000,190000);
+select * from employee_payroll;
+
