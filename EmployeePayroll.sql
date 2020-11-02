@@ -23,3 +23,8 @@ insert into employee_payroll values
 
 -- Retrieve all data from table
 select * from employee_payroll;
+
+-- Selecting salary of Teresa
+select salary from employee_payroll where name = 'Teresa';
+-- Selecting all employees with start date between 1/1/2018 and present date
+select * from employee_payroll where start between '2018-01-01' and GETDATE();
