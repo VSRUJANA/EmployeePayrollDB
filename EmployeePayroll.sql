@@ -212,3 +212,32 @@ JOIN Company company
 ON emp.Company_ID=company.Company_ID
 JOIN Payroll pay
 ON emp.Emp_ID=pay.Emp_ID;
+
+-- Selecting salary for particular employee
+SELECT Emp_Name,BasicPay,Deduction,TaxablePay,IncomeTax,NetPay FROM Payroll pay
+JOIN Employee emp ON emp.Emp_ID=pay.Emp_ID
+where emp.Emp_Name='Teresa';
+
+-- Selecting all employees with start date between 1/1/2018 and present date
+select * from Employee 
+where start_date between '2018-01-01' and GETDATE();
+
+-- Sum of salary of all males
+select gender,SUM(NetPay) from Payroll pay
+join Employee emp on emp.Emp_ID=pay.Emp_ID
+group by gender
+-- Average salary based on gender
+select gender,AVG(NetPay) from Payroll pay
+join Employee emp on emp.Emp_ID=pay.Emp_ID
+group by gender;
+-- Minimum salary based on gender
+select gender,MIN(NetPay) from Payroll pay
+join Employee emp on emp.Emp_ID=pay.Emp_ID
+group by gender;
+-- Maximum salary based on gender
+select gender,MAX(NetPay) from Payroll pay
+join Employee emp on emp.Emp_ID=pay.Emp_ID
+group by gender;
+-- Employee count based on gender
+select COUNT(gender), gender from Employee
+group by gender;
